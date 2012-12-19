@@ -49,5 +49,36 @@ class FontEmoticons {
       new FontEmoticonInfo('shoot', array(':shoot:')),
       new FontEmoticonInfo('laugh', array('^^', '^_^', ':lol:'))
     );
+
+    # Disable Wordpress' own smileys
+    update_option('use_smilies', 0);
+
+    add_filter('the_content', array($this, 'replace_emots'), 500);
+    if (!is_admin()) {
+      add_action('wp_print_styles', array($this, 'enqueue_stylesheets_callback'));
+    }
+
+  }
+
+  public static function init() {
+    static $instance = null;
+    if ($instance === null) {
+      $instance = new FontEmoticons();
+    }
+  }
+
+  public function enqueue_stylesheets_callback() {
+    wp_register_style('emoticons', WP_PLUGIN_URL.'/font-emoticons/emoticons.css');
+    wp_enqueue_style('emoticons');
+  }
+
+  public function replace_emots($content) {
+    foreach ($this->emots as $emot) {
+      $content = $emot->insert_emots($content);
+    }
+
+    return $content;
   }
 }
+
+FontEmoticons::init();
