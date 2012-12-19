@@ -18,22 +18,36 @@ class FontEmoticonInfo {
   }
 
   public function insert_emots($post_text) {
-    $code = '<span class="emoticon-'.$this->name.'"/>';
+    $code = '<span class="icon-emo-'.$this->name.'"/>';
     return str_replace($this->text_reps, $code, $post_text);
   }
 }
 
 class FontEmoticons {
-  # See: http://codex.wordpress.org/Using_Smilies#What_Text_Do_I_Type_to_Make_Smileys.3F
   private $emots;
 
   private function __construct() {
+    # See: http://codex.wordpress.org/Using_Smilies#What_Text_Do_I_Type_to_Make_Smileys.3F
     $this->emots = array(
-      new FontEmoticonInfo('happy', ':)', ':-)', ':c)', ':smile:'),
-      new FontEmoticonInfo('unhappy', ':(', ':-(', ':c(', ':sad:'),
-      new FontEmoticonInfo('wink2', ';)', ';-)', ';c)', ':wink:'),
-      new FontEmoticonInfo('tongue', ':P', ':p', ':-P', ':-p', ':razz:'),
-      
+      new FontEmoticonInfo('happy', array(':)', ':-)', ':c)', ':smile:')),
+      new FontEmoticonInfo('unhappy', array(':(', ':-(', ':c(', ':sad:')),
+      new FontEmoticonInfo('wink2', array(';)', ';-)', ';c)', ':wink:')),
+      new FontEmoticonInfo('tongue', array(':P', ':p', ':-P', ':-p', ':razz:')),
+      new FontEmoticonInfo('sleep', array('-.-', '-_-', ':sleep:')),
+      new FontEmoticonInfo('thumbsup', array(':thumbs:', ':thumbsup:')),
+      new FontEmoticonInfo('devil', array(':devil:', ':twisted')),
+      new FontEmoticonInfo('surprised', array(':o', ':-o', ':eek:', '8O', '8o', '8-O', '8-o', ':shock:')),
+      new FontEmoticonInfo('coffee', array(':coffee:')),
+      new FontEmoticonInfo('sunglasses', array('8)', '8-)', '8c)', 'B)', 'B-)', 'Bc)', ':cool:')),
+      new FontEmoticonInfo('displeased', array(':/', ':-/')),
+      new FontEmoticonInfo('beer', array(':beer:')),
+      new FontEmoticonInfo('grin', array(':D', ':-D', ':cD', ':grin:')),
+      # No real icon for "mad" available yet. Use the same as angry.
+      new FontEmoticonInfo('angry', array('x(', 'x-(', 'X(', 'X-(', ':angry:', ':x', ':-x', ':mad:')),
+      new FontEmoticonInfo('saint', array('O:)', '0:)', 'o:)', 'O:-)', '0:-)', 'o:-)', ':saint:')),
+      new FontEmoticonInfo('cry', array(":'(", ":'-(", ':cry:')),
+      new FontEmoticonInfo('shoot', array(':shoot:')),
+      new FontEmoticonInfo('laugh', array('^^', '^_^', ':lol:'))
     );
   }
 }
