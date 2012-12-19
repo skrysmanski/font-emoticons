@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'emoticons';
+  src: url("font/emoticons.eot");
+  src: url("font/emoticons.eot?#iefix") format('embedded-opentype'),
+       url("font/emoticons.woff") format('woff'),
+       url("font/emoticons.ttf") format('truetype'),
+       url("font/emoticons.svg#emoticons") format('svg');
+}
+[class^="emoticon-"]:before,
+[class*=" emoticon-"]:before {
+  font-family: 'emoticons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  opacity: 0.8;
+/* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+/* Animation center compensation - magrins should be symmetric */
+/* remove if not needed */
+  margin-left: 0.2em;
+/* you can be more comfortable with increased icons size */
+/* font-size: 120%; */
+}
+
+.emoticon-happy:before { content: '\e800'; } /* '' */
+.emoticon-unhappy:before { content: '\e802'; } /* '' */
+.emoticon-sleep:before { content: '\e803'; } /* '' */
+.emoticon-tongue:before { content: '\e807'; } /* '' */
+.emoticon-sunglasses:before { content: '\e809'; } /* '' */
+.emoticon-displeased:before { content: '\e80a'; } /* '' */
+.emoticon-grin:before { content: '\e80c'; } /* '' */
+.emoticon-cry:before { content: '\e80f'; } /* '' */
+.emoticon-laugh:before { content: '\e812'; } /* '' */
+.emoticon-wink2:before { content: '\e813'; } /* '' */
