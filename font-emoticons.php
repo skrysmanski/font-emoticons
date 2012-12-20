@@ -5,7 +5,7 @@ Plugin URI:
 Description: Replace the standard WP Smileys with font icons.
 Version: 1.0.0
 Author: Sebastian Krysmanski
-Author URI:
+Author URI: http://manski.net
 */
 
 class FontEmoticonInfo {
@@ -60,7 +60,7 @@ class FontEmoticons {
       new FontEmoticonInfo('tongue', array(':P', ':-P', ':razz:')),
       new FontEmoticonInfo('sleep', array('-.-', '-_-', ':sleep:')),
       new FontEmoticonInfo('thumbsup', array(':thumbs:', ':thumbsup:')),
-      new FontEmoticonInfo('devil', array(':devil:', ':twisted')),
+      new FontEmoticonInfo('devil', array(':devil:', ':twisted:')),
       new FontEmoticonInfo('surprised', array(':o', ':-o', ':eek:', '8O', '8o', '8-O', '8-o', ':shock:')),
       new FontEmoticonInfo('coffee', array(':coffee:')),
       new FontEmoticonInfo('sunglasses', array('8)', '8-)', 'B)', 'B-)', ':cool:')),
@@ -135,3 +135,9 @@ class FontEmoticons {
 }
 
 FontEmoticons::init();
+
+register_deactivation_hook(__FILE__, 'fe_plugin_deactivated');
+function fe_plugin_deactivated() {
+  # Re-enable Wordpress smileys
+  update_option('use_smilies', 1);
+}
