@@ -66,11 +66,8 @@ The emoticons used in this plugin are based on the "Fontelico" font.
 
 License:
 
-   Copyright (C) 2012 by Fontello project
+    Copyright (C) 2012 by Fontello project
 
-   Author:    Crowdsourced, for Fontello project
-   License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://fontello.com
-
-
-
+    Author:    Crowdsourced, for Fontello project
+    License:   SIL (http://scripts.sil.org/OFL)
+    Homepage:  http://fontello.com
