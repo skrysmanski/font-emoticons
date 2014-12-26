@@ -4,6 +4,17 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$WORDPRESS_INSTALL$/wp-includes" />
+          <root url="file://$WORDPRESS_INSTALL$/wp-admin" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$WORDPRESS_INSTALL$/wp-includes" />
+          <root url="file://$WORDPRESS_INSTALL$/wp-admin" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
-
