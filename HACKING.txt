@@ -1,0 +1,3 @@
+For developing tips, see:
+
+  https://bitbucket.org/mayastudios/blogtext/src/tip/HACKING.txt
