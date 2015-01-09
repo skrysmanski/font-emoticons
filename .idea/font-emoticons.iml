@@ -7,12 +7,12 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$WORDPRESS_INSTALL$/wp-includes" />
-          <root url="file://$WORDPRESS_INSTALL$/wp-admin" />
+          <root url="file://$MODULE_DIR$/../wordpress-4.1/wp-admin" />
+          <root url="file://$MODULE_DIR$/../wordpress-4.1/wp-includes" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$WORDPRESS_INSTALL$/wp-includes" />
-          <root url="file://$WORDPRESS_INSTALL$/wp-admin" />
+          <root url="file://$MODULE_DIR$/../wordpress-4.1/wp-admin" />
+          <root url="file://$MODULE_DIR$/../wordpress-4.1/wp-includes" />
         </SOURCES>
       </library>
     </orderEntry>
