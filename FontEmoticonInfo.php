@@ -2,6 +2,8 @@
 
 class FontEmoticonInfo
 {
+    const EMOTS_BASE_CLASS_NAME = 'wp-font-emots-';
+
     private $name;
     private $text_reps;
     private $regex;
@@ -31,7 +33,7 @@ class FontEmoticonInfo
 
     public function insert_emots($post_text)
     {
-        $code = '\\1<span class="wp-font-emots-' . $this->name . '"/>\\2';
+        $code = '\\1<span class="' . self::EMOTS_BASE_CLASS_NAME . $this->name . '"/>\\2';
 
         return preg_replace($this->regex, $code, $post_text);
     }
