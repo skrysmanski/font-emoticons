@@ -37,8 +37,11 @@ class FontEmoticonInfo
         }
 
         // NOTE: We need to use lookahead and lookbehind here (instead of capturing the leading and
-        //   trailing whitespace) so that multiple consecutive emoticons are detected correctly (see issue #5)-
-        $this->m_regex = '/(?<=\s)(?:' . $this->m_regex . ')(?=\s)/U';
+        //   trailing whitespace) so that multiple consecutive emoticons are detected correctly (see issue #5).
+        // NOTE 2: All HTML tags have been escaped at this point (with "DELIM_CHARS" being the marker).
+        $this->m_regex = '/(?<=\s|^|' . FontEmoticonsPlugin::DELIM_CHARS . ')'
+                       . '(?:' . $this->m_regex . ')'
+                       . '(?=\s|$|' . FontEmoticonsPlugin::DELIM_CHARS . ')/U';
 
         $this->m_htmlCode = '<span class="' . self::EMOTS_BASE_CLASS_NAME . $name . '"/>';
     }

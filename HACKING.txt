@@ -1,3 +1,47 @@
 For developing tips, see:
 
   https://bitbucket.org/mayastudios/blogtext/src/tip/HACKING.txt
+
+Font emoticons are created by:
+
+  http://fontello.com/
+
+
+Troubleshooting
+===============
+
+* If some emoticons are not converted, check if they're being masked accidentially (by commenting out the unmasking code
+  line).
+
+All Emoticons
+=============
+
+# :)
+# ;)
+# :(
+# -.-
+# :devil:
+# :O
+# :P
+# :coffee:
+# 8)
+# :/
+# :beer:
+# :D
+# x(
+# O:)
+# :'(
+# :shoot:
+# |)
+# ^_^
+
+# :thumbsup:
+# :thumbsdown:
+# <3
+# :star:
+# (/)
+# (x)
+# (+)
+# (-)
+# (?)
+# (i)

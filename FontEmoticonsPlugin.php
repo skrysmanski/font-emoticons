@@ -9,6 +9,9 @@ class FontEmoticonsPlugin
 {
     const VERSION = '1.3';
 
+    // Should be unique enough to not usually appear in a text and must not have any meaning in regex.
+    const DELIM_CHARS = '@@';
+
     /**
      * Identifies the beginning of a masked text section. Text sections are masked by surrounding an id with this and
      * {@link $SECTION_MASKING_END_DELIM}.
@@ -35,41 +38,59 @@ class FontEmoticonsPlugin
     {
         # Adding some characters (here: "@@") to the delimiters gives us the ability to distinguish them both in the markup
         # text and also prevents the misinterpretation of real MD5 hashes that might be contained in the markup text.
-        $this->SECTION_MASKING_START_DELIM = '@@' . md5('%%%');
-        $this->SECTION_MASKING_END_DELIM   = md5('%%%') . '@@';
+        $this->SECTION_MASKING_START_DELIM = self::DELIM_CHARS . md5('%%%') . '@';
+        $this->SECTION_MASKING_END_DELIM   = '@' . md5('%%%') . self::DELIM_CHARS;
 
         # See: http://codex.wordpress.org/Using_Smilies#What_Text_Do_I_Type_to_Make_Smileys.3F
         $this->emots = array(
-            new FontEmoticonInfo('happy', array(':)', ':-)', ':smile:')),
-            new FontEmoticonInfo('unhappy', array(':(', ':-(', ':sad:')),
-            new FontEmoticonInfo('wink2', array(';)', ';-)', ':wink:')),
-            new FontEmoticonInfo('tongue', array(':P', ':-P', ':razz:')),
-            new FontEmoticonInfo('sleep', array('-.-', '-_-', ':sleep:')),
-            new FontEmoticonInfo('thumbsup', array(':thumbs:', ':thumbsup:')),
-            new FontEmoticonInfo('devil', array(':devil:', ':twisted:')),
-            new FontEmoticonInfo('surprised', array(':o', ':-o', ':eek:', '8O', '8o', '8-O', '8-o', ':shock:')),
-            new FontEmoticonInfo('coffee', array(':coffee:')),
-            new FontEmoticonInfo('sunglasses', array('8)', '8-)', 'B)', 'B-)', ':cool:')),
-            new FontEmoticonInfo('displeased', array(':/', ':-/')),
-            new FontEmoticonInfo('beer', array(':beer:')),
-            new FontEmoticonInfo('grin', array(':D', ':-D', ':grin:')),
+            #
+            # Emots
+            #
+            new FontEmoticonInfo('emo-happy', array(':)', ':-)', '(-:', '(:', ':smile:')),
+            new FontEmoticonInfo('emo-unhappy', array(':(', ':-(', ':sad:')),
+            new FontEmoticonInfo('emo-wink', array(';)', ';-)', ':wink:')),
+            new FontEmoticonInfo('emo-tongue', array(':P', ':-P', ':razz:')),
+            new FontEmoticonInfo('emo-sleep', array('-.-', '-_-', ':sleep:')),
+            new FontEmoticonInfo('emo-devil', array('>:)', '>:-)', ':devil:', ':twisted:')),
+            new FontEmoticonInfo('emo-surprised', array(':o', ':-o', ':O', ':-O', ':eek:', '8O', '8o', '8-O', '8-o', ':shock:')),
+            new FontEmoticonInfo('emo-coffee', array(':coffee:')),
+            new FontEmoticonInfo('emo-sunglasses', array('8)', '8-)', 'B)', 'B-)', ':cool:')),
+            new FontEmoticonInfo('emo-displeased', array(':/', ':-/')),
+            new FontEmoticonInfo('emo-beer', array(':beer:')),
+            new FontEmoticonInfo('emo-grin', array(':D', ':-D', ':grin:')),
             # No real icon for "mad" available yet. Use the same as angry.
-            new FontEmoticonInfo('angry', array('x(', 'x-(', 'X(', 'X-(', ':angry:', ':x', ':-x', ':mad:')),
-            new FontEmoticonInfo('saint', array('O:)', '0:)', 'o:)', 'O:-)', '0:-)', 'o:-)', ':saint:')),
-            new FontEmoticonInfo('cry', array(":'(", ":'-(", ':cry:')),
-            new FontEmoticonInfo('shoot', array(':shoot:')),
-            new FontEmoticonInfo('laugh', array('^^', '^_^', ':lol:'))
+            new FontEmoticonInfo('emo-angry', array('x(', 'x-(', 'X(', 'X-(', ':angry:', ':x', ':-x', ':mad:')),
+            new FontEmoticonInfo('emo-saint', array('O:)', '0:)', 'o:)', 'O:-)', '0:-)', 'o:-)', ':saint:')),
+            new FontEmoticonInfo('emo-cry', array(":'(", ":'-(", ':cry:')),
+            new FontEmoticonInfo('emo-shoot', array(':shoot:')),
+            new FontEmoticonInfo('emo-squint', array('|)', ':squint:')),
+            new FontEmoticonInfo('emo-laugh', array('^^', '^_^', ':lol:')),
+
+            #
+            # General purpose icons
+            #
+            new FontEmoticonInfo('thumbs-up', array(':thumbs:', ':thumbsup:')),
+            new FontEmoticonInfo('thumbs-down', array(':thumbsdown:')),
+            new FontEmoticonInfo('heart', array('<3', '&lt;3', ':heart:')),
+            new FontEmoticonInfo('star', array(':star:')),
+            new FontEmoticonInfo('ok', array('(/)')),
+            new FontEmoticonInfo('cancel', array('(x)', '(X)')),
+            new FontEmoticonInfo('plus-circled', array('(+)')),
+            new FontEmoticonInfo('minus-circled', array('(-)')),
+            new FontEmoticonInfo('help-circled', array('(?)')),
+            new FontEmoticonInfo('info-circled', array('(i)')),
         );
 
         # Disable Wordpress' own smileys
         update_option('use_smilies', 0);
 
-        add_filter('the_content', array($this, 'replace_emots'), 500);
-        add_filter('the_excerpt', array($this, 'replace_emots'), 500);
-        add_filter('get_comment_text', array($this, 'replace_emots'), 500);
-        add_filter('get_comment_excerpt', array($this, 'replace_emots'), 500);
         if (!is_admin())
         {
+            add_filter('the_content', array($this, 'replace_emots'), 500);
+            add_filter('the_excerpt', array($this, 'replace_emots'), 500);
+            add_filter('get_comment_text', array($this, 'replace_emots'), 500);
+            add_filter('get_comment_excerpt', array($this, 'replace_emots'), 500);
+
             add_action('wp_print_styles', array($this, 'enqueue_stylesheets_callback'));
         }
     }
@@ -92,10 +113,6 @@ class FontEmoticonsPlugin
 
     public function replace_emots($content)
     {
-        # surround content with white space so that regexps match emoticons at the beginning and the end
-        # of the content correctly.
-        $content = ' ' . $content . ' ';
-
         $content = $this->mask_content($content);
 
         foreach ($this->emots as $emot)
@@ -104,9 +121,6 @@ class FontEmoticonsPlugin
         }
 
         $content = $this->unmask_content($content);
-
-        # Remove spaces added at the beginning.
-        $content = substr($content, 1, - 1);
 
         return $content;
     }
@@ -117,8 +131,10 @@ class FontEmoticonsPlugin
         $this->placeholders = array();
 
         # Mask all code blocks and HTML tags
-        return preg_replace_callback('=<pre(?: .+)?>.*</pre>|<code(?: .+)?>.*</code>|<.+>=isU', array($this,
-            'mask_content_replace_callback'), $content);
+        # NOTE: Make sure that <3 is not matched.
+        return preg_replace_callback('=(?:<pre(?: .+)?>.*</pre>)|(?:<code(?: .+)?>.*</code>)|(?:<[^<]+>)=isU',
+                                     array($this, 'mask_content_replace_callback'),
+                                     $content);
     }
 
     public function mask_content_replace_callback($matches)
@@ -145,8 +161,9 @@ class FontEmoticonsPlugin
 
     private function unmask_content($content)
     {
-        $content            = preg_replace_callback('=' . $this->SECTION_MASKING_START_DELIM . '(\d+)' . $this->SECTION_MASKING_END_DELIM . '=U', array($this,
-            'unmask_content_replace_callback'), $content);
+        $content = preg_replace_callback('=' . $this->SECTION_MASKING_START_DELIM . '(\d+)' . $this->SECTION_MASKING_END_DELIM . '=U',
+                                         array($this, 'unmask_content_replace_callback'),
+                                         $content);
         $this->placeholders = array();
 
         return $content;
