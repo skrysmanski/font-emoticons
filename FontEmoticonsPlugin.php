@@ -7,6 +7,8 @@ require_once(dirname(__FILE__) . '/FontEmoticonInfo.php');
  */
 class FontEmoticonsPlugin
 {
+    const VERSION = '1.3';
+
     /**
      * Identifies the beginning of a masked text section. Text sections are masked by surrounding an id with this and
      * {@link $SECTION_MASKING_END_DELIM}.
@@ -80,7 +82,8 @@ class FontEmoticonsPlugin
 
     public function enqueue_stylesheets_callback()
     {
-        wp_register_style('emoticons', WP_PLUGIN_URL . '/font-emoticons/emoticons.css');
+        // Add the version here so that browser pick up the new CSS file more reliably.
+        wp_register_style('emoticons', WP_PLUGIN_URL . '/font-emoticons/emoticons.css?v=' . self::VERSION);
         wp_enqueue_style('emoticons');
     }
 
