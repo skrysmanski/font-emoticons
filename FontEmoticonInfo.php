@@ -1,21 +1,29 @@
 <?php
 
+/**
+ * Represents a single font emoticon (together with all of its text representations).
+ */
 class FontEmoticonInfo
 {
     const EMOTS_BASE_CLASS_NAME = 'wp-font-emots-';
 
-    private $name;
-    private $text_reps;
-    private $regex;
+    /**
+     * The regex matching this emoticon.
+     * @var string
+     */
+    private $m_regex;
 
-    public function __construct($name, $text_reps)
+    /**
+     * The regex replacement HTML code of this emoticon.
+     * @var string
+     */
+    private $m_htmlCode;
+
+    public function __construct($name, $textRepresentations)
     {
-        $this->name      = $name;
-        $this->text_reps = $text_reps;
-
-        $this->regex = '';
+        $this->m_regex = '';
         $is_first    = true;
-        foreach ($text_reps as $smiley)
+        foreach ($textRepresentations as $smiley)
         {
             if ($is_first)
             {
@@ -23,18 +31,18 @@ class FontEmoticonInfo
             }
             else
             {
-                $this->regex .= '|';
+                $this->m_regex .= '|';
             }
-            $this->regex .= preg_quote($smiley, '/');
+            $this->m_regex .= preg_quote($smiley, '/');
         }
 
-        $this->regex = '/(\s+)(?:' . $this->regex . ')(\s+)/U';
+        $this->m_regex = '/(\s+)(?:' . $this->m_regex . ')(\s+)/U';
+
+        $this->m_htmlCode = '\\1<span class="' . self::EMOTS_BASE_CLASS_NAME . $name . '"/>\\2';
     }
 
-    public function insert_emots($post_text)
+    public function replaceTextEmots($postText)
     {
-        $code = '\\1<span class="' . self::EMOTS_BASE_CLASS_NAME . $this->name . '"/>\\2';
-
-        return preg_replace($this->regex, $code, $post_text);
+        return preg_replace($this->m_regex, $this->m_htmlCode, $postText);
     }
 }

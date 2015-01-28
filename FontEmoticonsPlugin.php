@@ -26,6 +26,9 @@ class FontEmoticonsPlugin
 
     private $placeholders;
 
+    /**
+     * @var FontEmoticonInfo[]
+     */
     private $emots;
 
     private function __construct()
@@ -93,15 +96,11 @@ class FontEmoticonsPlugin
         # of the content correctly.
         $content = ' ' . $content . ' ';
 
-        #echo "<!--$content-->";
-
         $content = $this->mask_content($content);
-
-        #echo "<!--$content-->";
 
         foreach ($this->emots as $emot)
         {
-            $content = $emot->insert_emots($content);
+            $content = $emot->replaceTextEmots($content);
         }
 
         $content = $this->unmask_content($content);
