@@ -2,8 +2,8 @@
 Contributors: manski
 Tags: smileys, emoticons
 Requires at least: 3.0.0
-Tested up to: 3.5.0
-Stable tag: 1.2
+Tested up to: 4.1.0
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ The following emoticons are supported:
 * `^^` `^_^` `:lol:`
 
 Notes:
-* Emoticons must be surrounded with spaces (or other white space characters); e.g. the emoticon in `that:)smile` won't be replaced
+* Emoticons must be surrounded with spaces (or other white space characters); e.g. the emoticon in `that:)smile` won't be replaced.
 * Emoticons won't be replaced in HTML tags nor in `<pre>` or `<code>` blocks.
 
 == Installation ==
@@ -57,6 +57,9 @@ This section describes how to install the plugin and get it working.
 2. Emoticon comparison.
 
 == Changelog ==
+
+= 1.3 =
+* Made font and css classes more unique so that they don't interfer with other icon fonts
 
 = 1.2 =
 * Emoticons are now supported in comments and excerpts.

@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Font Emoticons
-Plugin URI:
+Plugin URI: https://wordpress.org/plugins/font-emoticons/
 Description: Replace the standard WP Smileys with font icons.
-Version: 1.2
+Version: 1.3
 Author: Sebastian Krysmanski
 Author URI: http://manski.net
 */
@@ -33,7 +33,7 @@ class FontEmoticonInfo {
   }
 
   public function insert_emots($post_text) {
-    $code = '\\1<span class="icon-emo-'.$this->name.'"/>\\2';
+    $code = '\\1<span class="wp-font-emots-'.$this->name.'"/>\\2';
     return preg_replace($this->regex, $code, $post_text);
   }
 }
@@ -61,9 +61,6 @@ class FontEmoticons {
   private function __construct() {
     # Adding some characters (here: "@@") to the delimiters gives us the ability to distinguish them both in the markup
     # text and also prevents the misinterpretation of real MD5 hashes that might be contained in the markup text.
-    #
-    # NOTE: The additional character(s) (@) must neither have a meaning in BlogText (so that it's not parsed by
-    #   accident) nor must it have a meaning in a regular expression (again so that it's not parsed by accident).
     $this->SECTION_MASKING_START_DELIM = '@@'.md5('%%%');
     $this->SECTION_MASKING_END_DELIM = md5('%%%').'@@';
 
