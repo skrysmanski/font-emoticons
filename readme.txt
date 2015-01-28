@@ -62,6 +62,7 @@ This section describes how to install the plugin and get it working.
 * Change: PHP 5.3 is now required
 * Change: Made font and css classes more unique so that they don't interfer with other icon fonts (issue #7)
 * Fix: Multiple consecutive emoticons are now parsed correctly (issue #5)
+* Fix: Wider emoticons now flow correctly with surrounding text (no longer overlap it) (issue #4)
 
 = 1.2 =
 * Emoticons are now supported in comments and excerpts. (issue #1)
