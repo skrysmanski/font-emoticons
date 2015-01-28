@@ -59,8 +59,9 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.3 =
-* Change: Made font and css classes more unique so that they don't interfer with other icon fonts (issue #7)
 * Change: PHP 5.3 is now required
+* Change: Made font and css classes more unique so that they don't interfer with other icon fonts (issue #7)
+* Fix: Multiple consecutive emoticons are now parsed correctly (issue #5)
 
 = 1.2 =
 * Emoticons are now supported in comments and excerpts. (issue #1)

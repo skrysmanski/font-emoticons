@@ -36,9 +36,11 @@ class FontEmoticonInfo
             $this->m_regex .= preg_quote($smiley, '/');
         }
 
-        $this->m_regex = '/(\s+)(?:' . $this->m_regex . ')(\s+)/U';
+        // NOTE: We need to use lookahead and lookbehind here (instead of capturing the leading and
+        //   trailing whitespace) so that multiple consecutive emoticons are detected correctly (see issue #5)-
+        $this->m_regex = '/(?<=\s)(?:' . $this->m_regex . ')(?=\s)/U';
 
-        $this->m_htmlCode = '\\1<span class="' . self::EMOTS_BASE_CLASS_NAME . $name . '"/>\\2';
+        $this->m_htmlCode = '<span class="' . self::EMOTS_BASE_CLASS_NAME . $name . '"/>';
     }
 
     public function replaceTextEmots($postText)
