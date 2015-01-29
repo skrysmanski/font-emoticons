@@ -1,3 +1,4 @@
 syntax: glob
 .idea/.name
 .idea/workspace.xml
+dist
