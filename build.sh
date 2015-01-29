@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SOURCES="assets font *.css *.php readme.txt"
+SOURCES="font *.css *.php readme.txt"
 DEST_DIR="dist"
 
 rm -rf $DEST_DIR
