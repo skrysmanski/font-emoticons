@@ -39,6 +39,7 @@ The following emoticons are supported:
 * `^^` `^_^` `:lol:`
 
 The following general purpose icons are supported:
+
 * `:thumbs:` `:thumbsup:`
 * `:thumbsdown:`
 * `<3` `:heart:`
@@ -51,6 +52,7 @@ The following general purpose icons are supported:
 * `(-)`
 
 Notes:
+
 * Emoticons/Icons must be surrounded with spaces (or other white space characters); e.g. the emoticon in `that:)smile` won't be replaced.
 * Emoticons/Icons won't be replaced in HTML tags nor inside of `<pre>` or `<code>` blocks.
 
@@ -90,7 +92,7 @@ This section describes how to install the plugin and get it working.
 == Font Licenses ==
 The emoticons used in this plugin are based on the fonts "Fontelico" and "Font Awesome".
 
-=== Fontelico ===
+= Fontelico =
 
    Copyright (C) 2012 by Fontello project
 
@@ -98,7 +100,7 @@ The emoticons used in this plugin are based on the fonts "Fontelico" and "Font A
    License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://fontello.com
 
-=== Font Awesome ===
+= Font Awesome =
 
    Copyright (C) 2012 by Dave Gandy
 
