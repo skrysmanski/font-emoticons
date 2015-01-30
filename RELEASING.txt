@@ -1,11 +1,12 @@
 Steps BEFORE releasing a new version
 ==================================
 
-1. Check readme at: https://wordpress.org/plugins/about/validator/
+1. Make sure "Tested up to" and "Stable tag" in "readme.txt" have been properly updated
+2. Make sure "Version" in the main php file has been updated properly
+3. Check readme at: https://wordpress.org/plugins/about/validator/
    * Especially for incorrect line breaks
-   * Make sure "Tested up to" and "Stable tag" have been properly updated
-2. Check issue tracker for open issues
-3. Check support forum for open issue
+4. Check issue tracker for open issues
+5. Check support forum for open issue
 
 
 Steps WHEN releasing a new version
