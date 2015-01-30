@@ -71,7 +71,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.3.1 =
-* Fix: Self closing span (`<span/>`) seems to be invalid in some cases. Replaced it with regular `<span></span>`.
+* Fix: Self closing span (`<span/>`) seems to be invalid in some cases. Replaced it with regular `<span></span>` (issue #8)
 
 = 1.3 =
 * Feature: New emoticon "squint": `|)` or `:squint:`
