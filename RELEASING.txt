@@ -1,0 +1,20 @@
+Steps BEFORE releasing a new version
+==================================
+
+1. Check readme at: https://wordpress.org/plugins/about/validator/
+   * Especially for incorrect line breaks
+   * Make sure "Tested up to" and "Stable tag" have been properly updated
+2. Check issue tracker for open issues
+3. Check support forum for open issue
+
+
+Steps WHEN releasing a new version
+==================================
+
+1. Checking assets and trunk in Wordpress SVN repository
+2. Create SVN tag for version
+3. Create Mercurial tag version
+4. Create new version in BitBucket's issue tracker
+5. Upload plugin as .zip to downloads section in BitBucket
+6. Close all resolved issues
+7. Close all resolved support tickets
