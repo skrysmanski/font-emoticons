@@ -106,9 +106,8 @@ class FontEmoticonsPlugin
 
     public function enqueue_stylesheets_callback()
     {
-        // Add the version here so that browser pick up the new CSS file more reliably.
-        wp_register_style('emoticons', WP_PLUGIN_URL . '/font-emoticons/emoticons.css?v=' . self::VERSION);
-        wp_enqueue_style('emoticons');
+        wp_register_style('wp-font-emoticons', WP_PLUGIN_URL . '/font-emoticons/emoticons.css');
+        wp_enqueue_style('wp-font-emoticons');
     }
 
     public function replace_emots($content)

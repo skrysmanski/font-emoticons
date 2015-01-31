@@ -70,6 +70,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= xxx =
+* Fix: `emoticons.css` no longer gets an unnecessary `?v=` parameter attached; also made the style's name more unique so that it's less likely to conflict with other plugins.
+
 = 1.3.1 =
 * Fix: Self closing span (`<span/>`) seems to be invalid in some cases. Replaced it with regular `<span></span>` (issue #8)
 
