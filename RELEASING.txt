@@ -11,8 +11,8 @@ Steps WHEN releasing a new version
 ==================================
 
 1. Make sure "Tested up to" and "Stable tag" in "readme.txt" have been properly updated
-2. Make sure "Version" in the main php file has been updated properly
-3. Make sure "VERSION" constant in the plugin class has been updated properly
+2. Make sure "Version" in "font-emoticon.php" has been updated properly
+3. Make sure "VERSION" constant "FontEmoticonsPlugin.php" has been updated properly
 
 4. Run "build.sh"
 5. Checking assets and trunk in Wordpress SVN repository

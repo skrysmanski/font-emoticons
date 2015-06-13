@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/FontEmoticonInfo.php');
  */
 class FontEmoticonsPlugin
 {
-    const VERSION = '1.3.1';
+    const VERSION = '1.4.0';
 
     // Should be unique enough to not usually appear in a text and must not have any meaning in regex.
     const DELIM_CHARS = '@@';
@@ -106,7 +106,7 @@ class FontEmoticonsPlugin
 
     public function enqueue_stylesheets_callback()
     {
-        wp_register_style('wp-font-emoticons', WP_PLUGIN_URL . '/font-emoticons/emoticons.css');
+        wp_register_style('wp-font-emoticons', plugins_url('emoticons.css', __FILE__));
         wp_enqueue_style('wp-font-emoticons');
     }
 
