@@ -86,14 +86,18 @@ class FontEmoticonsPlugin
 
         if (!is_admin())
         {
-            add_filter('the_content', array($this, 'replace_emots'), 500);
-            add_filter('the_excerpt', array($this, 'replace_emots'), 500);
-            add_filter('get_comment_text', array($this, 'replace_emots'), 500);
-            add_filter('get_comment_excerpt', array($this, 'replace_emots'), 500);
+            $replaceEmotCallback = array($this, 'replace_emots');
+
+            add_filter('the_content', $replaceEmotCallback, 500);
+            add_filter('the_excerpt', $replaceEmotCallback, 500);
+            add_filter('get_comment_text', $replaceEmotCallback, 500);
+            add_filter('get_comment_excerpt', $replaceEmotCallback, 500);
+
+            add_filter('widget_text', $replaceEmotCallback, 500);
 
             # bbpress
-            add_filter('bbp_get_topic_content', array($this, 'replace_emots'), 500);
-            add_filter('bbp_get_reply_content', array($this, 'replace_emots'), 500);
+            add_filter('bbp_get_topic_content', $replaceEmotCallback, 500);
+            add_filter('bbp_get_reply_content', $replaceEmotCallback, 500);
 
             add_action('wp_print_styles', array($this, 'enqueue_stylesheets_callback'));
         }
