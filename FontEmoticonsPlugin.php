@@ -91,6 +91,10 @@ class FontEmoticonsPlugin
             add_filter('get_comment_text', array($this, 'replace_emots'), 500);
             add_filter('get_comment_excerpt', array($this, 'replace_emots'), 500);
 
+            # bbpress
+            add_filter('bbp_get_topic_content', array($this, 'replace_emots'), 500);
+            add_filter('bbp_get_reply_content', array($this, 'replace_emots'), 500);
+
             add_action('wp_print_styles', array($this, 'enqueue_stylesheets_callback'));
         }
     }

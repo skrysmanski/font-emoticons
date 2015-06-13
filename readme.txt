@@ -71,6 +71,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.4.0 =
+* Feature: Implemented rudimentary bbpress support. I don't use bbpress, so some parts may still no display emoticons correctly.
 * Fix: `emoticons.css` no longer gets an unnecessary `?v=` parameter attached (Wordpress does this automatically on its own); also made the style's name more unique so that it's less likely to conflict with other plugins.
 * Fix: Replaced usage of internal constant `WP_PLUGIN_URL` with `plugins_url()`
 
