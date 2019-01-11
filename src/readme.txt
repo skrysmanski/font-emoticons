@@ -11,10 +11,12 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Replaces Wordpress' smileys with font-based emoticons.
 
 == Description ==
-Replaces [Wordpress' smileys](http://codex.wordpress.org/Using_Smilies#What_Text_Do_I_Type_to_Make_Smileys.3F) (based on images) with font-based emoticons (see screenshots). Font-based emoticons have some advantages:
+Replaces Wordpress' smileys (based on images) with font-based emoticons (see screenshots). Font-based emoticons have some advantages:
 
 * They have the same size as the surrounding text. No more distorting the heights of lines containing smileys/emoticons. They always fit the font size.
 * They have the same color as the surrounding text.
+
+*Note:* This plugin was developed when Wordpress was still using ["pixel images"](http://codex.wordpress.org/Using_Smilies#What_Text_Do_I_Type_to_Make_Smileys.3F) as emoticons. The current version of Wordpress uses scalable vector images (SVG) - so they won't distort your line heights anymore and look crisp on any size. This makes this plugin less useful than it once was - it now comes down to personal preference whether to use it.
 
 The following emoticons are supported:
 
