@@ -1,9 +1,10 @@
 === Font Emoticons ===
 Contributors: manski
+Stable tag: 1.4.1
 Tags: smileys, emoticons
 Requires at least: 3.0.0
-Tested up to: 4.2.2
-Stable tag: 1.4.1
+Tested up to: 5.0.3
+Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
