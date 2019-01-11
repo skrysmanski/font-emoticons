@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "Wordpress"
+    ],
+    "cSpell.ignorePaths": [
+        "**/package-lock.json",
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode",
+        "*.php" // <-- just too many false positives
+    ],
+    "[plaintext]": {
+        "editor.wordWrap": "on"
+    }
+}
