@@ -1,25 +1,23 @@
-Steps BEFORE releasing a new version
-==================================
+# Releasing a new Font-Emoticons version
 
-1. Check readme at: https://wordpress.org/plugins/about/validator/
-   * Especially for incorrect line breaks
-2. Check issue tracker for open issues
-3. Check support forum for open issue
+For general help on Wordpress' plugin directory, see <https://developer.wordpress.org/plugins/wordpress-org/>.
 
+## Steps **before** releasing a new version
 
-Steps WHEN releasing a new version
-==================================
+1. Both for the **oldest** supported PHP version (`./Start-TestEnv.ps1 -PhpVersion 5.6`) and the **newest** supported PHP version (`./Start-TestEnv.ps1`) - as defined by the [Wordpress Docker image](https://hub.docker.com/_/wordpress):
+   1. Run manual tests (see `HACKING.md`)
+1. Check readme at: <https://wordpress.org/plugins/developers/readme-validator/>
+1. Check issue tracker for open issues
+1. Check [support forum](https://wordpress.org/support/plugin/font-emoticons/) for open issue
 
-1. Make sure "Tested up to" and "Stable tag" in "readme.txt" have been properly updated
-2. Make sure "Version" in "font-emoticon.php" has been updated properly
-3. Make sure "VERSION" constant "FontEmoticonsPlugin.php" has been updated properly
+## Steps **when** releasing a new version
 
-4. Run "build.sh"
-5. Checking assets and trunk in Wordpress SVN repository
-6. Create SVN tag for version
-7. Create Mercurial tag version
-
-8. Create new version in BitBucket's issue tracker
-9. Upload plugin as .zip to downloads section in BitBucket
-10. Close all resolved issues
-11. Close all resolved support tickets
+1. Make sure `Tested up to` and `Stable tag` in `src/readme.txt` have been updated.
+1. Make sure `Version` in `src/font-emoticons.php` has been updated.
+1. Run `./Create-Release.ps1 <VERSION>`
+1. Check-in the SVN repository in the `dist/` directory.
+1. Create SVN tag for version
+1. Create Git tag version
+1. Upload `dist-zip/font-emoticons-<VERSION>.zip` to downloads section in GitHub
+1. Close all resolved issues
+1. Close all resolved support tickets
