@@ -1,0 +1,23 @@
+{
+    "ProjectName": "font-emoticons",
+
+    "Mounts": [
+        {
+            "Host": "src",
+            "Container": "wp-content/plugins/font-emoticons",
+            "ReadOnly": true
+        }
+    ],
+
+    "SetupCommands": [
+        {
+            "Title": "Activating plugin 'Font Emoticons'...",
+            "CommandArgs": [ "plugin", "activate", "font-emoticons" ]
+        },
+        {
+            "Title": "Installing and activating 'Classic Editor'...",
+            "CommandArgs": [ "plugin", "install", "classic-editor" ],
+            "Condition": "($WordpressVersion -eq '') -or ($WordpressVersion -ge '5.0')"
+        }
+    ]
+}
