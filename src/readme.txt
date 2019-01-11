@@ -1,6 +1,6 @@
 === Font Emoticons ===
 Contributors: manski
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 Tags: smileys, emoticons
 Requires at least: 3.0.0
 Tested up to: 5.0.3
@@ -72,6 +72,10 @@ This section describes how to install the plugin and get it working.
 2. Emoticon comparison.
 
 == Changelog ==
+
+= 1.5.0 =
+* Change: Font-Emoticons is now hosted as Git repo on GitHub. (Thus, the issue numbering will reset.)
+* Change: font-emoticons now uses a (hopefully) a better way to disable Wordpress' own emoticons.
 
 = 1.4.1 =
 * Feature: Added general purpose filter called `wp_font_emots_replace`. This filter can be used to replace emoticons in places not supported by this plugin.

@@ -82,7 +82,11 @@ class FontEmoticonsPlugin
         );
 
         # Disable Wordpress' own smileys
-        update_option('use_smilies', 0);
+        #
+        # NOTE: It was suggested to use "add_filter()" instead of "update_option('use_smilies', 0)"
+        #   because of performance. I'm not certain about that but using a filter instead of updating
+        #   an option (in the database?) on every request seems to be reasonable.
+        add_filter('option_use_smilies', '__return_false');
 
         if (!is_admin())
         {
