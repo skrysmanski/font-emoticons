@@ -22,7 +22,8 @@ class FontEmoticonInfo
     public function __construct($name, $textRepresentations)
     {
         $this->m_regex = '';
-        $is_first    = true;
+        $is_first = true;
+
         foreach ($textRepresentations as $smiley)
         {
             if ($is_first)
@@ -33,6 +34,7 @@ class FontEmoticonInfo
             {
                 $this->m_regex .= '|';
             }
+
             $this->m_regex .= preg_quote($smiley, '/');
         }
 
