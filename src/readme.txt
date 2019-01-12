@@ -1,12 +1,12 @@
 === Font Emoticons ===
-Contributors: manski
 Stable tag: 1.5.0
+Contributors: manski
 Tags: smileys, emoticons
-Requires at least: 3.0.0
-Tested up to: 5.0.3
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Requires at least: 3.0.0
+Tested up to: 5.0.3
 
 Replaces Wordpress' smileys with font-based emoticons.
 

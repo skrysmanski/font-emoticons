@@ -1,12 +1,13 @@
 <?php
 /*
 Plugin Name: Font Emoticons
-Plugin URI: https://wordpress.org/plugins/font-emoticons/
+Plugin URI: https://github.com/skrysmanski/font-emoticons
 Description: Replace the standard WP Smileys with font icons.
 Version: 1.5.0
 Author: Sebastian Krysmanski
-Author URI: http://manski.net
+Author URI: https://manski.net
 */
+# ^-- https://developer.wordpress.org/plugins/the-basics/header-requirements/
 
 require_once(dirname(__FILE__).'/FontEmoticonsPlugin.php');
 
