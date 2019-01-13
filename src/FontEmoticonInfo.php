@@ -69,6 +69,13 @@ class FontEmoticonInfo
         return $regex;
     }
 
+    /**
+     * Replaces textual emoticons with their font emoticon equivalents.
+     *
+     * @param string $postText  the post's text
+     *
+     * @return string  the changed post text
+     */
     public function replaceTextEmots($postText)
     {
         return preg_replace($this->m_regex, $this->m_htmlCode, $postText);
